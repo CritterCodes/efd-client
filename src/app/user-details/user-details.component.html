@@ -1,0 +1,77 @@
+<div *ngIf="user" class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h3>User Details</h3>
+      <h3>{{ user.accountType }} ID: {{ user.userID }}</h3>
+    </div>
+    <div class="card-body">
+      <!-- Display Mode -->
+      <div *ngIf="!isEditing">
+        <div class="form-group mb-3">
+          <label class="fw-bold">Username:</label>
+          <p>{{ user.username }}</p>
+        </div>
+        <div class="form-group mb-3">
+          <label class="fw-bold">First Name:</label>
+          <p>{{ user.firstName }}</p>
+        </div>
+        <div class="form-group mb-3">
+          <label class="fw-bold">Last Name:</label>
+          <p>{{ user.lastName }}</p>
+        </div>
+        <div class="form-group mb-3">
+          <label class="fw-bold">Email:</label>
+          <p>{{ user.email }}</p>
+        </div>
+        <div class="form-group mb-3">
+          <label class="fw-bold">Phone Number:</label>
+          <p>{{ user.phoneNumber }}</p>
+        </div>
+        <div class="form-group mb-3">
+          <label class="fw-bold">Account Type:</label>
+          <p>{{ user.accountType }}</p>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-primary me-2" (click)="toggleEdit()">Edit</button>
+        </div>
+      </div>
+
+      <!-- Edit Mode -->
+      <div *ngIf="isEditing">
+        <div class="form-group mb-3">
+          <label for="username" class="fw-bold">Username</label>
+          <input [(ngModel)]="user.username" id="username" name="username" class="form-control">
+        </div>
+        <div class="form-group mb-3">
+          <label for="firstName" class="fw-bold">First Name</label>
+          <textarea [(ngModel)]="user.firstName" id="firstName" name="firstName" class="form-control" placeholder="Enter first name"></textarea>
+        </div>
+        <div class="form-group mb-3">
+          <label for="lastName" class="fw-bold">Last Name</label>
+          <input [(ngModel)]="user.lastName" id="lastName" name="lastName" class="form-control">
+        </div>
+        <div class="form-group mb-3">
+          <label for="email" class="fw-bold">Email</label>
+          <input [(ngModel)]="user.email" id="email" name="email" class="form-control" placeholder="Enter user email" readonly>
+        </div>
+        <div class="form-group mb-3">
+          <label for="phoneNumber" class="fw-bold">Phone Number</label>
+          <input [(ngModel)]="user.phoneNumber" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Enter phone number">
+        </div>
+        <div class="form-group mb-3">
+          <label for="accountType" class="fw-bold">Account Type</label>
+          <select [(ngModel)]="user.accountType" id="accountType" name="accountType" class="form-control">
+            <option value="user">Client</option>
+            <option value="collector">Collector</option>
+            <option value="client">Wholesale</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button type="button" class="btn btn-success me-2" (click)="updateUser()">Save</button>
+          <button type="button" class="btn btn-secondary" (click)="toggleEdit()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

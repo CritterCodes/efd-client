@@ -1,0 +1,40 @@
+<div class="collector-profile container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-3 text-center">
+        <div class="profile-picture mb-4">
+          <img 
+            [src]="collector?.picture || 'assets/default-profile.png'" 
+            class="img-fluid rounded-circle shadow-sm"
+          >
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h2 class="card-title text-center">{{ collector?.fullName }}</h2>
+            <p class="card-subtitle text-muted text-center">{{ collector?.username }}</p>
+            <p class="card-text mt-3">{{ collector?.bio }}</p>
+            <hr>
+            <p><strong>Email:</strong> {{ collector?.email }}</p>
+            <p><strong>Phone:</strong> {{ collector?.phoneNumber }}</p>
+            <div class="websites mt-3">
+              <h5>Websites</h5>
+              <ul class="list-unstyled">
+                <li *ngFor="let website of collector?.websites">
+                  <a [href]="website" target="_blank">{{ website }}</a>
+                </li>
+              </ul>
+            </div>
+            <div class="socials mt-3">
+              <h5>Social Media</h5>
+              <ul class="list-unstyled">
+                <li *ngFor="let social of collector?.socials">
+                  <a [href]="social" target="_blank">{{ social }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

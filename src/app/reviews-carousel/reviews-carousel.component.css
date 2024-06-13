@@ -1,0 +1,66 @@
+.hero-image {
+  position: relative;
+  background: url('/assets/reviewsHero.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 65%;
+  min-height: 55vh;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.review-section {
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+.review-rating {
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+/* Hide review text and reviewer name on small screens */
+@media (max-width: 600px) {
+  .review-text {
+    display: none;
+  }
+
+  .overlay {
+  width: 65%;
+  }
+
+  .review-rating {
+    font-size: 1.25rem; /* Increase star size for better visibility on small screens */
+  }
+}
+
+.review-text {
+  font-size: 1rem;
+  color: #ddd;
+  margin-bottom: 1rem;
+}
+
+.reviewer-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.carousel-item .review-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  width: 100%;
+}

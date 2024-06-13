@@ -1,0 +1,48 @@
+.collector-profile {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .profile-picture img {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .card {
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .card-subtitle {
+    font-size: 1.2rem;
+    margin-top: 5px;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .websites, .socials {
+    margin-top: 20px;
+  }
+  
+  .websites h5, .socials h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .websites a, .socials a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .websites a:hover, .socials a:hover {
+    text-decoration: underline;
+  }
+  

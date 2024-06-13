@@ -1,0 +1,134 @@
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar .sidebar-header {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.sidebar .logo {
+  width: 100px;
+}
+
+.sidebar .btn-create-drop {
+  display: block;
+  width: calc(100% - 40px);
+  margin: 0 20px 20px 20px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sidebar .btn-create-drop:hover {
+  background-color: #0056b3;
+}
+
+.sidebar ul.nav-links {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sidebar ul.nav-links li {
+  margin: 10px 0;
+}
+
+.sidebar ul.nav-links li a {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  color: #818181;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.sidebar ul.nav-links li a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar ul.nav-links li a i {
+  margin-right: 10px;
+  font-size: 1.25rem;
+}
+
+.sidebar ul.nav-links li a span {
+  font-size: 1rem;
+}
+
+.sidebar ul.nav-links li a.active {
+  color: #007bff;
+}
+
+.show-sidebar {
+  width: 250px;
+}
+
+/* Overlay */
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  transition: 0.5s;
+}
+
+.overlay.show-overlay {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: -250px;
+    transition: 0.3s;
+    overflow-y: auto;
+  }
+
+  .sidebar.show-sidebar {
+    left: 0;
+  }
+
+  .overlay.show-overlay {
+    display: block;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+}

@@ -1,0 +1,219 @@
+.landing-container {
+  font-family: 'Roboto Mono', monospace;
+  letter-spacing: 0.05em; /* Adjust letter spacing as needed */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Mono', monospace;
+  letter-spacing: 0.05em;
+}
+
+header {
+  background-color: #000;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  margin-bottom: 1rem;
+}
+
+.logo img {
+  max-width: 100px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links li a,
+.nav-links li .login-btn {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: background-color 0.3s, border 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li .login-btn:hover {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #fff;
+}
+
+.hero-section {
+  background: url('/assets/benchHero.jpg') no-repeat center center/cover;
+  color: #fff;
+  text-align: center;
+  padding: 10rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.cta-buttons .btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.cta-buttons .btn.primary-btn {
+  background-color: #000000;
+  color: #fff;
+}
+
+.cta-buttons .btn.primary-btn:hover {
+  background-color: #0056b3;
+}
+
+.cta-buttons .btn.secondary-btn {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.cta-buttons .btn.secondary-btn:hover {
+  background-color: #5a6268;
+}
+
+.section-padding {
+  padding: 4rem 0;
+}
+
+.burgundy-text {
+  color: #000000;
+}
+
+.service-card {
+  background-color: #ffffff; /* Blue background */
+  color: white;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+  position: relative;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.service-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #ffffff; /* Blue text */
+  margin-bottom: 0.5rem;
+}
+
+.service-description {
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+.service-card:hover {
+  background-color: #000000;
+}
+
+.icon-container {
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #000000;
+  font-size: 6rem;
+  padding: .2em;
+}
+
+.service-card:hover .icon-container {
+  transform: translateY(-20px) scale(0.5);
+  color: #ffffff; /* Blue icon */
+}
+
+.service-details {
+  display: none;
+  color: #ffffff;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-details {
+  display: block;
+  transform: translateY(-50px);
+}
+
+.benefit-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.benefit-icon {
+  font-size: 4rem;
+  color: #000000; /* Blue icon */
+  margin-bottom: 1rem;
+}
+
+.benefit-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+.benefit-description {
+  font-size: 1rem;
+  color: #555;
+}
+
+footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}

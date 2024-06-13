@@ -1,0 +1,31 @@
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 5em;
+  }
+  
+  footer h5 {
+    margin-bottom: 1rem;
+  }
+  
+  footer ul {
+    padding: 0;
+  }
+  
+  footer ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  footer ul li a {
+    text-decoration: none;
+  }
+  
+  footer ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  

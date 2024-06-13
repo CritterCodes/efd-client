@@ -1,0 +1,41 @@
+<div class="sidebar" [class.show-sidebar]="isSidebarOpen">
+  <div class="sidebar-header">
+    <img src="/assets/[efd]LogoWhite.png" alt="Logo" class="logo">
+  </div>
+  <button class="btn-create-drop" routerLink="/dashboard/new-repair">+ Create a Repair</button>
+  <ul class="nav-links">
+    <li>
+      <a routerLink="/dashboard/home">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/dashboard/repairs">
+        <i class="fas fa-tools"></i>
+        <span>Repairs</span>
+      </a>
+    </li>
+    <li>
+      <a *ngIf="authGaurd.isAdmin()" routerLink="/dashboard/users">
+        <i class="fas fa-users"></i>
+        <span>Users</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/dashboard/settings">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+      </a>
+    </li>
+    <li>
+      <a routerLink="/dashboard/profile">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+    </li>
+  <li class="nav-item" *ngIf="user">
+    <a class="nav-link" (click)="logout()">Logout</a>
+  </li>
+  </ul>
+</div>

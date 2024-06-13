@@ -1,0 +1,26 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  flex-grow: 1;
+  background-color: #f8f9fa;
+  transition: margin-left 0.5s;
+}
+
+.sidebar-open .main-content {
+  margin-left: 250px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
+
+  .sidebar-open .main-content {
+    margin-left: 0;
+  }
+}

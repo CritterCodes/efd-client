@@ -1,6 +1,16 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
 import { AppComponent } from './app/app.component';
+import { routes } from './app/app.routes';
+import { AuthService } from './app/auth.service';
+import { AuthGuard } from './app/auth.guard';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes),
+    provideHttpClient(),
+    AuthService,
+    AuthGuard
+  ]
+});

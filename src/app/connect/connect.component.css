@@ -1,0 +1,14 @@
+/* src/app/connect/connect.component.css */
+.container {
+    max-width: 500px;
+    margin-top: 50px;
+  }
+  
+  .text-danger {
+    color: #dc3545;
+  }
+  
+  .btn-primary {
+    margin-top: 10px;
+  }
+  

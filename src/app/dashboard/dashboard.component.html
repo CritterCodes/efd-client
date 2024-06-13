@@ -1,0 +1,6 @@
+<div class="dashboard-container" [class.sidebar-open]="isSidebarOpen">
+  <app-side-bar (sidebarToggled)="handleSidebarToggle($event)"></app-side-bar>
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

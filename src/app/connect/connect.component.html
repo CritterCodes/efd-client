@@ -1,0 +1,10 @@
+<!-- src/app/connect/connect.component.html -->
+<div class="container">
+    <h2>Connect Your Account</h2>
+    <p>Connecting {{ user.userID }} </p>
+    <button (click)="connect()">Connect</button>
+    <div *ngIf="errorMessage" class="text-danger mt-3">
+      {{ errorMessage }}
+    </div>
+  </div>
+  

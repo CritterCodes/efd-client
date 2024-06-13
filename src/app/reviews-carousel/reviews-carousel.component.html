@@ -1,0 +1,22 @@
+<div class="container-fluid p-0">
+  <div class="hero-image">
+    <div class="overlay">
+      <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" *ngFor="let review of reviews; let i = index" [class.active]="i === 0">
+            <div class="review-container">
+              <div class="review-section">
+                <div class="review-rating">
+                  <i class="fas fa-star" *ngFor="let star of getStarsArray(review.rating)"></i>
+                  <i class="fas fa-star-half-alt" *ngIf="hasHalfStar(review.rating)"></i>
+                </div>
+                <p class="review-text">{{ review.text }}</p>
+                <h4 class="reviewer-name">- {{ review.author_name }}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

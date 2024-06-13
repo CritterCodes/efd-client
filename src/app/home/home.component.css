@@ -1,0 +1,111 @@
+
+  body {
+      font-family: 'Anonymous Pro', monospace;
+      font-style: italic;
+  }
+  .burgundy-bg { background-color: #800020; }
+  .burgundy-hover:hover { background-color: #5e0017; }
+  .burgundy-text { color: #800020; }
+  .section-padding {
+      padding: 4rem 0;
+  }
+.service-card {
+    background-color: #800020; /* Burgundy */
+    color: white;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+    position: relative;
+    height: 250px; /* Fixed height to accommodate icon and details */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.service-title {
+    font-size: 1.25rem; /* Example size, adjust as needed */
+    font-weight: bold;
+    color: #800020; /* Burgundy, or any other color you prefer */
+    margin-bottom: 0.5rem; /* Creates some space between the title and description */
+}
+
+.service-description {
+    font-size: 1rem; /* Keep the description smaller than the title */
+    margin: 1rem; /* Adds margin around the description */
+}
+
+
+.service-card:hover {
+    background-color: white; /* Change to white on hover */
+}
+
+.icon-container {
+    transition: transform 0.3s ease, color 0.3s ease;
+    color: white; /* Icon color */
+    font-size: 6rem; /* Large icon size */
+}
+
+.service-card:hover .icon-container {
+    transform: translateY(-20px) scale(0.5); /* Move up and shrink */
+    color: #800020; /* Icon color changes to Burgundy */
+}
+
+.service-details {
+    display: none; /* Hide details initially */
+    color: #800020; /* Text color */
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-details {
+    display: block; /* Show on hover */
+    transform: translateY(-50px); /* Adjust if necessary based on actual layout */
+}
+
+.benefit-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.benefit-icon {
+    font-size: 4rem;
+    color: #800020; /* Matching the burgundy theme */
+    margin-bottom: 1rem;
+}
+.benefit-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #800020;
+    margin-bottom: 0.5rem;
+}
+.benefit-description {
+    font-size: 1rem;
+    color: #555; /* Darker text for readability */
+}
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.card {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Add more styling as needed */

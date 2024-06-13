@@ -1,0 +1,54 @@
+/* Sidebar styling */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Overlay */
+  .overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    transition: 0.5s;
+  }
+  
+  /* Show the sidebar and overlay */
+  .show-sidebar {
+    width: 250px;
+  }
+  
+  .show-overlay {
+    display: block;
+  }
+  
+  .btn-primary.rounded-pill {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
+  
