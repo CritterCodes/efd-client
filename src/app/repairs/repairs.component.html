@@ -1,10 +1,47 @@
 <div class="container mt-5">
   <div class="d-flex justify-content-between align-items-center">
     <h2>List of Repairs</h2>
-    <a routerLink="/repairs/new-repair" class="btn btn-success">Add Repair</a>
+    <a routerLink="/dashboard/new-repair" class="btn btn-success">Add Repair</a>
   </div>
-  <div class="row">
-    <div class="col-md-4" *ngFor="let repair of repairs">
+  <div class="form-group mt-3">
+    <label>Filter by Status</label>
+    <div class="d-flex flex-wrap">
+      <div class="form-check me-3">
+        <input class="form-check-input" type="checkbox" id="received" value="Received" (change)="toggleFilter($event)">
+        <label class="form-check-label" for="received">Received</label>
+      </div>
+      <div class="form-check me-3">
+        <input class="form-check-input" type="checkbox" id="needsParts" value="Needs Parts" (change)="toggleFilter($event)">
+        <label class="form-check-label" for="needsParts">Needs Parts</label>
+      </div>
+      <div class="form-check me-3">
+        <input class="form-check-input" type="checkbox" id="partsOrdered" value="Parts Ordered" (change)="toggleFilter($event)">
+        <label class="form-check-label" for="partsOrdered">Parts Ordered</label>
+      </div>
+      <div class="form-check me-3">
+        <input class="form-check-input" type="checkbox" id="readyForWork" value="Ready For Work" (change)="toggleFilter($event)">
+        <label class="form-check-label" for="readyForWork">Ready For Work</label>
+      </div>
+      <div class="form-check me-3">
+        <input class="form-check-input" type="checkbox" id="bench1" value="Bench1" (change)="toggleFilter($event)">
+        <label class="form-check-label" for="bench1">Bench1</label>
+      </div>
+      <div class="form-check me-3">
+        <input class="form-check-input" type="checkbox" id="polish" value="Polish" (change)="toggleFilter($event)">
+        <label class="form-check-label" for="polish">Polish</label>
+      </div>
+      <div class="form-check me-3">
+        <input class="form-check-input" type="checkbox" id="qualityControl" value="Quality Control" (change)="toggleFilter($event)">
+        <label class="form-check-label" for="qualityControl">Quality Control</label>
+      </div>
+      <div class="form-check me-3">
+        <input class="form-check-input" type="checkbox" id="completed" value="Completed" (change)="toggleFilter($event)">
+        <label class="form-check-label" for="completed">Completed</label>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-4" *ngFor="let repair of filteredRepairs">
       <div class="card mb-4 shadow-sm repair-card" routerLink="/dashboard/repairs/{{repair.repairID}}">
         <img src="http://space.engelfinedesign.com/{{repair.picture}}" class="card-img-top" alt="Repair Image">
         <div class="card-body">

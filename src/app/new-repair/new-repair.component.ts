@@ -1,19 +1,28 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { RepairService } from '../repair.service';
 import { Repair } from '../repair';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Observable, of } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { UserService } from '../user.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-repairs-create',
   standalone: true,
-  imports: [FormsModule, RouterLink, CommonModule],
+  imports: [FormsModule, ReactiveFormsModule, RouterLink, CommonModule],
   templateUrl: './new-repair.component.html',
   styleUrls: ['./new-repair.component.css'] // Note the correct plural form
 })
-export class NewRepairComponent {
+export class NewRepairComponent implements OnInit {
+  repairForm: FormGroup;
+  users: User[] = [];
+  filteredUsers$: Observable<User[]> = of([]);
+  showDropdown: boolean = false;
+
   repair: Repair = {
     repairID: '',
     userID: '',
@@ -22,19 +31,53 @@ export class NewRepairComponent {
     receivedDate: '',
     promiseDate: '',
     metalType: '',
-    repairTasks: [], // Initialize as an empty array
+    repairTasks: [],
     status: 'pending'
   };
-  task = '';
   imagePreview: string | ArrayBuffer | null = '';
 
-  constructor(private repairService: RepairService,
-              private router: Router) {}
+  constructor(private repairService: RepairService, private router: Router, private fb: FormBuilder, private userService: UserService, private route: ActivatedRoute) {
+    this.repairForm = this.fb.group({
+      userID: ['', Validators.required],
+      description: ['', Validators.required],
+      picture: [''],
+      promiseDate: ['', Validators.required],
+      metalType: ['', Validators.required],
+      task: [''] // Standalone input for task
+    });
+  }
 
-  addTask(task: string): void {
+  ngOnInit(): void {
+    this.userService.getUsers().subscribe(users => {
+      this.users = users;
+    });
+
+    this.filteredUsers$ = this.repairForm.get('userID')!.valueChanges.pipe(
+      startWith(''),
+      map(value => this.filterUsers(value))
+    );
+
+    this.route.queryParams.subscribe(params => {
+      const userID = params['userID'];
+      if (userID) {
+        this.repair.userID = userID;
+        this.repairForm.patchValue({ userID });
+      }
+    });
+  }
+
+  filterUsers(value: string): User[] {
+    const filterValue = value.toLowerCase();
+    return this.users.filter(user =>
+      user.userID.toLowerCase().includes(filterValue) || `${user.firstName.toLowerCase()} ${user.lastName.toLowerCase()}`.includes(filterValue)
+    );
+  }
+
+  addTask(): void {
+    const task = this.repairForm.get('task')!.value;
     if (task) {
       this.repair.repairTasks.push(task);
-      this.task = ''; // Clear the input after adding the task
+      this.repairForm.patchValue({ task: '' }); // Clear the input after adding the task
     }
   }
 
@@ -48,7 +91,7 @@ export class NewRepairComponent {
       const reader = new FileReader();
       reader.onload = () => {
         this.imagePreview = reader.result;
-        this.repair.picture = reader.result as string; // Store the base64 string or URL
+        this.repair.picture = reader.result as string;
       };
       reader.readAsDataURL(file);
     }
@@ -59,5 +102,19 @@ export class NewRepairComponent {
       .subscribe(() => {
         this.router.navigate(['/repairs']);
       });
+  }
+
+  setUserID(userID: string): void {
+    this.repair.userID = userID;
+    this.repairForm.patchValue({ userID: userID });
+    this.showDropdown = false;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
+    const target = event.target as HTMLElement;
+    if (!target.closest('.autocomplete-list') && !target.closest('#userID')) {
+      this.showDropdown = false;
+    }
   }
 }

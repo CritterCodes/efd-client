@@ -1,1 +1,23 @@
-<p>new-user works!</p>
+<div class="container">
+    <h3>Create New User</h3>
+    <form (ngSubmit)="createUser()">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" class="form-control" [(ngModel)]="user.firstName" name="firstName" required />
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" class="form-control" [(ngModel)]="user.lastName" name="lastName" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" [(ngModel)]="user.email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="text" id="phoneNumber" class="form-control" [(ngModel)]="user.phoneNumber" name="phoneNumber" required />
+      </div>
+      <button type="submit" class="btn btn-primary">Create User</button>
+    </form>
+  </div>
+  

@@ -5,10 +5,10 @@ import { RouterLink, RouterLinkActive, ActivatedRoute } from '@angular/router';
   selector: 'app-repair-nav',
   standalone: true,
   imports: [RouterLink, RouterLinkActive],
-  templateUrl: './repair-nav.component.html',
-  styleUrl: './repair-nav.component.css'
+  templateUrl: './repairs-nav.component.html',
+  styleUrl: './repairs-nav.component.css'
 })
-export class RepairNavComponent implements OnInit {
+export class RepairsNavComponent implements OnInit {
   repairID: string | null = null;
 
   constructor(

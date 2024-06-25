@@ -1,0 +1,16 @@
+.move-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.btn {
+  margin-top: 1rem;
+}
+
+.repair-ids-list {
+  margin-top: 2rem;
+}

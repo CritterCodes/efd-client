@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Repair } from './repair';
+import { Repair, RepairTask } from './repair';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -31,5 +31,11 @@ export class RepairService {
 
   createRepair = (repair: Repair): Observable<Repair> => {
     return this.http.post<Repair>(`${this.repairsUrl}`, repair)
+  }
+
+  getRepairTasks = (): Observable<RepairTask[]> => {
+    console.log('Fetching repair tasks from API');
+    console.log(this.http.get<RepairTask[]>(`${this.repairsUrl}/tasks`))
+    return this.http.get<RepairTask[]>(`${this.repairsUrl}/tasks`);
   }
 }

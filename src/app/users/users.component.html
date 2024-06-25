@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center">
       <h2>List of Users</h2>
-      <a routerLink="/new-user" class="btn btn-success">Add User</a>
+      <a routerLink="/dashboard/new-user" class="btn btn-success">Add User</a>
     </div>
     <div class="row">
       <div class="col-md-4" *ngFor="let user of users">
@@ -10,7 +10,7 @@
             <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
             <p class="card-text">User ID: {{ user.userID }}</p>
             <div class="d-flex justify-content-between align-items-center">
-              <a routerLink="/users/{{user.userID}}" class="btn btn-primary">View User</a>
+              <a routerLink="/dashboard/users/{{user.userID}}" class="btn btn-primary">View User</a>
               <button type="button" class="btn btn-danger" (click)="deleteUser(user.userID)">Delete</button>
             </div>
           </div>

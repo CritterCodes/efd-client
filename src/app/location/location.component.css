@@ -1,4 +1,4 @@
-.container {
+.move-container {
     max-width: 800px;
     margin: 0 auto;
   }
@@ -9,5 +9,11 @@
   
   .btn {
     margin-top: 1rem;
+  }
+  
+  
+  .viewport {
+    width: 100%;
+    height: auto;
   }
   

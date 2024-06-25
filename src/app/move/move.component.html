@@ -1,1 +1,25 @@
-<p>move works!</p>
+<div class="move-container">
+  <h3>Move Repairs</h3>
+  <form [formGroup]="moveForm" (ngSubmit)="moveRepairs()">
+    <div class="form-group">
+      <label for="newLocation">New Location</label>
+      <input formControlName="newLocation" id="newLocation" class="form-control" placeholder="Enter new location" (keypress)="handleKeypress($event, 'newLocation')">
+    </div>
+    <div class="form-group mt-3">
+      <label for="repairID">Repair ID</label>
+      <input #repairIDInput formControlName="repairID" id="repairID" class="form-control" placeholder="Enter repair ID" (keypress)="handleKeypress($event, 'repairID')">
+      <button type="button" class="btn btn-secondary mt-2" (click)="addRepairID()">Add Repair ID</button>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Move Repairs</button>
+  </form>
+
+  <div class="repair-ids-list mt-4" *ngIf="repairIDs.length > 0">
+    <h4>Repairs to Move</h4>
+    <ul class="list-group">
+      <li *ngFor="let repairID of repairIDs" class="list-group-item d-flex justify-content-between align-items-center">
+        {{ repairID }}
+        <button type="button" class="btn btn-danger btn-sm" (click)="removeRepairID(repairID)">Remove</button>
+      </li>
+    </ul>
+  </div>
+</div>

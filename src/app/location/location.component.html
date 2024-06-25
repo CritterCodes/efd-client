@@ -1,0 +1,11 @@
+<div class="move-container">
+    <h3>Update Status</h3>
+    <form [formGroup]="statusForm" (ngSubmit)="updateStatus()">
+      <div class="form-group">
+        <label for="status">Status</label>
+        <input formControlName="status" id="status" class="form-control" placeholder="Enter new status">
+      </div>
+      <button type="submit" class="btn btn-primary">Update Status</button>
+    </form>
+  </div>
+  

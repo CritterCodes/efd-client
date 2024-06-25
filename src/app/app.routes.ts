@@ -15,6 +15,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RepairComponent } from './repair/repair.component';
 import { RepairTasksComponent } from './repair-tasks/repair-tasks.component';
 import { MoveComponent } from './move/move.component';
+import { NewUserComponent } from './new-user/new-user.component';
+import { LocationComponent } from './location/location.component';
 
 export const routes: Routes = [
   { path: 'landing-page', component: LandingPageComponent },
@@ -31,10 +33,12 @@ export const routes: Routes = [
                 { path: '', redirectTo: 'details', pathMatch: 'full' },
                 { path: 'details', component: RepairDetailsComponent, canActivate: [AuthGuard] },
                 { path: 'tasks', component: RepairTasksComponent, canActivate: [AuthGuard] },
-                { path: 'location', component: MoveComponent, canActivate: [AuthGuard] }
+                { path: 'location', component: LocationComponent, canActivate: [AuthGuard] }
               ]},
       { path: 'new-repair', component: NewRepairComponent, canActivate: [AuthGuard] },
+      { path: 'move', component: MoveComponent, canActivate: [AuthGuard]},
       { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
+      { path: 'new-user', component: NewUserComponent, canActivate: [AuthGuard] },
       { path: 'users/:userID', component: UserDetailsComponent, canActivate: [AuthGuard] },
       { path: 'connect/:collectorID', component: ConnectComponent, canActivate: [AuthGuard] },
       { path: 'collectors/:username', component: CollectorProfileComponent }]

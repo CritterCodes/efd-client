@@ -17,6 +17,12 @@
       </a>
     </li>
     <li>
+      <a *ngIf="authGaurd.isAdmin()" routerLink="/dashboard/move">
+        <i class="fas fa-arrow-right"></i>
+        <span>Move</span>
+      </a>
+    </li>
+    <li>
       <a *ngIf="authGaurd.isAdmin()" routerLink="/dashboard/users">
         <i class="fas fa-users"></i>
         <span>Users</span>
@@ -34,8 +40,11 @@
         <span>Profile</span>
       </a>
     </li>
-  <li class="nav-item" *ngIf="user">
-    <a class="nav-link" (click)="logout()">Logout</a>
-  </li>
+    <li>
+      <a class="nav-link" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </a>
+    </li>
   </ul>
 </div>

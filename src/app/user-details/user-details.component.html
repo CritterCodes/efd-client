@@ -31,8 +31,9 @@
           <label class="fw-bold">Account Type:</label>
           <p>{{ user.accountType }}</p>
         </div>
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-between">
           <button type="button" class="btn btn-primary me-2" (click)="toggleEdit()">Edit</button>
+          <button type="button" class="btn btn-success" [routerLink]="['/dashboard/new-repair']" [queryParams]="{ userID: user.userID }">New Repair</button>
         </div>
       </div>
 

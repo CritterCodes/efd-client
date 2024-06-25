@@ -1,37 +1,42 @@
 <div class="container mt-5">
   <h2>Add New Repair</h2>
-  <form (ngSubmit)="createRepair()">
-    <div class="form-group">
-      <label for="userID">User ID</label>
-      <input [(ngModel)]="repair.userID" id="userID" name="userID" class="form-control" placeholder="Enter user ID" required>
+  <form [formGroup]="repairForm" (ngSubmit)="createRepair()">
+    <div class="form-group position-relative">
+      <label for="userID">User ID or Name</label>
+      <input formControlName="userID" id="userID" class="form-control" placeholder="Enter user ID or name" required (focus)="showDropdown = true">
+      <ul class="autocomplete-list" *ngIf="showDropdown && (repairForm.get('userID')!.value)">
+        <li *ngFor="let user of filteredUsers$ | async" (click)="setUserID(user.userID)">
+          {{ user.userID }} - {{ user.firstName }} {{ user.lastName }}
+        </li>
+      </ul>
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <textarea [(ngModel)]="repair.description" id="description" name="description" class="form-control" placeholder="Enter description" required></textarea>
+      <textarea formControlName="description" id="description" class="form-control" placeholder="Enter description" required></textarea>
     </div>
     <div class="form-group">
       <label for="picture">Picture</label>
-      <input type="file" (change)="onFileChange($event)" id="picture" name="picture" class="form-control" accept="image/*">
+      <input type="file" (change)="onFileChange($event)" id="picture" class="form-control" accept="image/*">
       <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" class="img-thumbnail mt-2">
     </div>
     <div class="form-group">
       <label for="promiseDate">Promise Date</label>
-      <input [(ngModel)]="repair.promiseDate" id="promiseDate" name="promiseDate" type="date" class="form-control" required>
+      <input formControlName="promiseDate" id="promiseDate" type="date" class="form-control" required>
     </div>
     <div class="form-group">
       <label for="metalType">Metal Type</label>
-      <input [(ngModel)]="repair.metalType" id="metalType" name="metalType" class="form-control" placeholder="Enter metal type" required>
+      <input formControlName="metalType" id="metalType" class="form-control" placeholder="Enter metal type" required>
     </div>
     <div class="form-group">
       <label for="repairTasks">Repair Tasks</label>
       <div class="input-group mb-3">
-        <input [(ngModel)]="task" name="repairTask" class="form-control" placeholder="Enter task" #taskInput>
+        <input formControlName="task" id="task" class="form-control" placeholder="Enter task">
         <div class="input-group-append">
-          <button type="button" class="btn btn-outline-secondary" (click)="addTask(task)">Add Task</button>
+          <button type="button" class="btn btn-outline-secondary" (click)="addTask()">Add Task</button>
         </div>
       </div>
       <ul class="list-group">
-        <li *ngFor="let task of repair.repairTasks; let i = index" name="repairTask"class="list-group-item d-flex justify-content-between align-items-center">
+        <li *ngFor="let task of repair.repairTasks; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
           {{ task }}
           <button type="button" class="btn btn-danger btn-sm" (click)="removeTask(i)">Remove</button>
         </li>

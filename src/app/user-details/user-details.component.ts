@@ -5,11 +5,12 @@ import { User } from '../user';
 import { Task } from '../task';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../user.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user-detail',
   standalone: true,
-  imports: [NgIf, NgFor, FormsModule],
+  imports: [NgIf, NgFor, FormsModule, RouterLink],
   templateUrl: './user-details.component.html',
   styleUrls: ['./user-details.component.css'] // Corrected to styleUrls
 })

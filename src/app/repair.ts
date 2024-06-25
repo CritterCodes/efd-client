@@ -9,3 +9,12 @@ export interface Repair {
     repairTasks: string[];
     status: string;
 }
+
+export interface RepairTask {
+    taskID: string,
+    sku: string,
+    title: string,
+    metalType: string,
+    variantId: string,
+    productId: string
+}
