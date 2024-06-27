@@ -98,10 +98,30 @@ export class NewRepairComponent implements OnInit {
   }
 
   createRepair(): void {
-    this.repairService.createRepair(this.repair)
-      .subscribe(() => {
-        this.router.navigate(['/repairs']);
-      });
+    if (this.repairForm.valid) {
+      this.repair = {
+        ...this.repair,
+        userID: this.repairForm.get('userID')!.value,
+        description: this.repairForm.get('description')!.value,
+        promiseDate: this.repairForm.get('promiseDate')!.value,
+        metalType: this.repairForm.get('metalType')!.value,
+        repairTasks: this.repair.repairTasks,
+        status: 'pending'
+      };
+
+      this.repairService.createRepair(this.repair)
+        .subscribe({
+          next: () => {
+            console.log('Repair created successfully');
+            this.router.navigate(['/dashboard/repairs']);
+          },
+          error: (error) => {
+            console.error('There was an error creating the repair:', error);
+          }
+        });
+    } else {
+      console.error('Form is invalid');
+    }
   }
 
   setUserID(userID: string): void {

@@ -15,11 +15,6 @@
       <textarea formControlName="description" id="description" class="form-control" placeholder="Enter description" required></textarea>
     </div>
     <div class="form-group">
-      <label for="picture">Picture</label>
-      <input type="file" (change)="onFileChange($event)" id="picture" class="form-control" accept="image/*">
-      <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" class="img-thumbnail mt-2">
-    </div>
-    <div class="form-group">
       <label for="promiseDate">Promise Date</label>
       <input formControlName="promiseDate" id="promiseDate" type="date" class="form-control" required>
     </div>

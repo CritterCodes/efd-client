@@ -1,0 +1,100 @@
+<div class="container mt-5">
+  <h2>{{repairID}}</h2>
+  <form [formGroup]="receivingForm" (ngSubmit)="receiveRepair()">
+    <div class="form-group mb-3 text-center">
+      <input type="file" (change)="onFileChange($event)" id="picture" class="form-control" accept="image/*">
+      <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" class="img-thumbnail mt-2">
+    </div>
+    <div class="form-group mb-3">
+      <label for="status" class="fw-bold">Status</label>
+      <select formControlName="status" id="status" class="form-control">
+        <option value="Needs Parts">Needs Parts</option>
+        <option value="Ready For Work">Ready for Work</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success mt-3">Update Repair</button>
+  </form>
+</div>
+
+
+<!-- Hidden Print Section -->
+<div id="print-section" style="display: none;">
+  <h1 style="padding-top: 3pt;padding-left: 5pt;text-indent: 0pt;text-align: left;">[efd]</h1>
+  <p style="text-indent: 0pt;text-align: left;"><br /></p>
+  <p style="text-indent: 0pt;text-align: left;">
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td>
+                <img width="154" height="28" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJoAAAAcCAYAAACZFqbSAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACu0lEQVR4nO1b0XHDIAx9TtLLVxfIENkjmaXbdJbukSGyQL56vcbnflSkCgWMLQTYx7vrmRiBnmRZgJoAwB2/OAHYAegB7Ol6o+s3XY8AtiTfA3hn7S+6HgB0rA3W90ljejbuCODCPhude7r3Qtcr3e+pfWLz7Nl4w/dCbcP3lXEwnD6o3dHfwbLF2Gj0bIkvmE96AG/MZ8aHV5K7U/vs4Ovzb098uU2G75h/zdiezWX71+Z7dvDltuxpzI3ZbvsXzFd2PGBHpA06ABtqbwAMrJ/L8X54ZDbP4o++wdJh7hkZ3s8xONouHQOTsTnbnwf8h22Lj49L5wZ/PrRtcs3j86+vzfn6/NtZ/T4unO/gkDEvH39G9jMI2fPEPeRAKVwPcQj0acAOrJy6JXDxjkFK2+ZycCIUaFLSLqKx5FM5LJSxNFA6iKfalo1v7owWK5MqGDSDqgZ9UmTjG9oLSUnEjNc2NHeG0czEGgjpScrBFWhrWlqke7SpfDV8twq+kqVzTtDk3qNJOEyV5Si1V/OdUItDEmiSt2FsbKo3rYYHXmquUvtFp95W3qgTNWTSVt6YgFbeCKOVN1ISyQiNJd/no9ggCcmF+MasPqFV6wmagVZDeWMNAeuzIdY26R4vND561Rr7H15qlF5aAN1yQSrEZLSxcSk5iMe18kY6WY4aTrs1vNQPrL28sVTUYH+2U6cUNZQ3XMihu1Qdjdu2mDpaK2+k0ZcTrbwxUaaGpWMOWnmjlTcWhVbeEKL00gK08ob2XJMzmoaTa8gwOcobKbEKvrkzWo65a0DKg1TSzDKTg1ivZkaL2URqL02aNoTkpS9SCr/EcMj2jGo9DNSwlwPqqEWV5jBVf/bvo0mw1KWV/xa0NGI4SLNeNErV0XIFUulsMBeSGqTNQbrHi6m1jULzMCAtBjaEoV1HSzr3D1T45aTL5DwNAAAAAElFTkSuQmCC" />
+            </td>
+        </tr>
+    </table>
+  <p style="padding-top: 2pt;padding-left: 5pt;text-indent: 0pt;text-align: left;">{{ repair?.repairID }}</p>
+  <p style="text-indent: 0pt;text-align: left;"><br /></p>
+  <table style="border-collapse:collapse;margin-left:6.54987pt" cellspacing="0">
+    <tr style="height:35pt">
+      <td style="width:162pt;border: 2pt solid;">
+        <p style="text-indent: 0pt;text-align: left;"></p>
+        <p class="s1" style="padding-left: 23pt;text-indent: 0pt;text-align: left;">
+          ClientID: {{ repair?.userID }}
+        </p>
+      </td>
+      <td style="width:68pt;border: 2pt solid;">
+        <p class="s1" style="padding-left: 7pt;text-indent: 0pt;text-align: left;">
+          Received: {{ repair?.receivedDate }}
+        </p>
+      </td>
+      <td style="width:68pt;border: 2pt solid;">
+        <p class="s1" style="padding-left: 7pt;text-indent: 0pt;text-align: left;">
+          Promised: {{ repair?.promiseDate }}
+        </p>
+      </td>
+    </tr>
+    <tr style="height:40pt">
+      <td style="width:67pt;border: 2pt solid;">
+        <p class="s1" style="padding-top: 1pt;padding-left: 3pt;text-indent: 0pt;text-align: left;">
+          Metal Type: {{ repair?.metalType }}
+        </p>
+      </td>
+      <td style="width:163pt;border: 2pt solid;">
+        <p class="s1" style="padding-top: 1pt;padding-left: 49pt;text-indent: 0pt;text-align: left;">
+          Description: {{ repair?.description }}
+        </p>
+      </td>
+    </tr>
+    <tr style="height:145pt">
+      <td style="width:67pt;border: 2pt solid;">
+        <p class="s2" style="padding-top: 6pt;padding-left: 12pt;text-indent: 0pt;text-align: left;">
+          Received:
+        </p>
+        <p class="s2" style="padding-left: 11pt;text-indent: 0pt;text-align: left;">
+          Repaired:
+        </p>
+        <p class="s2" style="padding-left: 12pt;text-indent: 0pt;text-align: left;">
+          Polished:
+        </p>
+        <p class="s2" style="padding-left: 3pt;text-indent: 0pt;text-align: center;">
+          QC:
+        </p>
+      </td>
+      <td style="width:163pt;border: 2pt solid;">
+        <p style="text-indent: 0pt;text-align: left;"><br /></p>
+      </td>
+    </tr>
+    <tr style="height:105pt">
+      <td style="width:115pt;border: 2pt solid;">
+        <p class="s1" style="padding-top: 5pt;padding-left: 22pt;text-indent: 0pt;text-align: left;">
+          Repair Tasks:
+        </p>
+        <ul>
+          <li *ngFor="let task of repair?.repairTasks">{{ task }}</li>
+        </ul>
+      </td>
+      <td style="width:115pt;border: 2pt solid;">
+        <p class="s1" style="padding-top: 2pt;padding-left: 1pt;text-indent: 0pt;text-align: center;">
+          Notes:
+        </p>
+      </td>
+    </tr>
+  </table>
+</div>
