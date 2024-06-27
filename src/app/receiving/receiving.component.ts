@@ -70,6 +70,11 @@ export class ReceivingComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
+
+  
+  formatTask(task: any): string {
+    return `${task.taskID} ${task.title}`;
+  }
   
   receiveRepair(): void {
     if (this.repairID && this.receivingForm.valid) {
