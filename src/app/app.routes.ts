@@ -17,6 +17,7 @@ import { RepairTasksComponent } from './repair-tasks/repair-tasks.component';
 import { MoveComponent } from './move/move.component';
 import { NewUserComponent } from './new-user/new-user.component';
 import { LocationComponent } from './location/location.component';
+import { ReceivingComponent } from './receiving/receiving.component';
 
 export const routes: Routes = [
   { path: 'landing-page', component: LandingPageComponent },
@@ -26,14 +27,15 @@ export const routes: Routes = [
     component: DashboardComponent,
     canActivate: [AuthGuard],
     children: [
-      {
-        path: 'repairs', component: RepairsComponent, canActivate: [AuthGuard] },
-        {path: 'repairs/:repairID', component: RepairComponent, canActivate: [AuthGuard], children:
+      { path: '', redirectTo: 'repairs', pathMatch: 'full' },
+      {path: 'repairs', component: RepairsComponent, canActivate: [AuthGuard] },
+      {path: 'repairs/:repairID', component: RepairComponent, canActivate: [AuthGuard], children:
               [
                 { path: '', redirectTo: 'details', pathMatch: 'full' },
                 { path: 'details', component: RepairDetailsComponent, canActivate: [AuthGuard] },
                 { path: 'tasks', component: RepairTasksComponent, canActivate: [AuthGuard] },
-                { path: 'location', component: LocationComponent, canActivate: [AuthGuard] }
+                { path: 'location', component: LocationComponent, canActivate: [AuthGuard] },
+                { path: 'receiving', component: ReceivingComponent, canActivate: [AuthGuard]},
               ]},
       { path: 'new-repair', component: NewRepairComponent, canActivate: [AuthGuard] },
       { path: 'move', component: MoveComponent, canActivate: [AuthGuard]},

@@ -5,6 +5,7 @@ import { Repair } from '../repair';
 import { RepairDetailsComponent } from '../repair-details/repair-details.component';
 import { RepairService } from '../repair.service';
 import { RouterLink } from '@angular/router';
+import { AuthGuard } from '../auth.guard';
 
 @Component({
   selector: 'app-repairs',
@@ -19,7 +20,7 @@ export class RepairsComponent {
   filteredRepairs: Repair[] = [];
   statusFilters: Set<string> = new Set();
 
-  constructor(private repairService: RepairService) {}
+  constructor(private repairService: RepairService, public authGaurd: AuthGuard) {}
 
   getRepairs = (): void => {
     this.repairService.getRepairs().subscribe((repairs) => {

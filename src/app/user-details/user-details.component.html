@@ -1,8 +1,8 @@
-<div *ngIf="user" class="container mt-5">
+<div *ngIf="user" class="user-details-container mt-5">
   <div class="card">
     <div class="card-header">
-      <h3>User Details</h3>
-      <h3>{{ user.accountType }} ID: {{ user.userID }}</h3>
+      <h3>Client Details</h3>
+      <h3>clientID: {{ user.userID }}</h3>
     </div>
     <div class="card-body">
       <!-- Display Mode -->
@@ -64,7 +64,7 @@
           <select [(ngModel)]="user.accountType" id="accountType" name="accountType" class="form-control">
             <option value="user">Client</option>
             <option value="collector">Collector</option>
-            <option value="client">Wholesale</option>
+            <option value="Wholesale">Wholesale</option>
             <option value="admin">Admin</option>
           </select>
         </div>

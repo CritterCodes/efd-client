@@ -73,7 +73,7 @@ export class RepairDetailsComponent implements OnInit {
   deleteRepair(): void {
     if (this.repair) {
       this.repairService.deleteRepair(this.repair.repairID).subscribe(() => {
-        this.router.navigate(['/repairs']);
+        this.router.navigate(['/dashboard/repairs']);
       });
     }
   }
@@ -82,17 +82,11 @@ export class RepairDetailsComponent implements OnInit {
     this.isEditing = !this.isEditing;
   }
 
-  printDetails(): void {
-    const printContent = document.getElementById('print-section');
-    const WindowPrt = window.open('', '', 'width=600,height=600');
-    WindowPrt?.document.write(printContent?.innerHTML || '');
-    WindowPrt?.document.close();
-    WindowPrt?.focus();
-    WindowPrt?.print();
-    WindowPrt?.close();
+  formatTask(task: any): string {
+    return `${task.taskID} ${task.title}`;
   }
 
-  formatTask(task: any): string {
-    return `Task ID: ${task.taskID}, Title: ${task.title}`;
+  navigateToReceive(): void {
+    this.router.navigate([`/dashboard/repairs/${this.repairID}/receiving`]);
   }
 }

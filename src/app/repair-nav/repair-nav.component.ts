@@ -16,7 +16,12 @@ export class RepairNavComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.repairID = this.route.snapshot.paramMap.get('userID');
-    console.log(this.repairID);
+    this.getRepairID;
+  }
+
+  getRepairID(): void {
+    this.route.parent?.paramMap.subscribe((paramMap) => {
+      this.repairID = paramMap.get('repairID');
+    });
   }
 }

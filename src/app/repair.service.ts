@@ -33,6 +33,10 @@ export class RepairService {
     return this.http.post<Repair>(`${this.repairsUrl}`, repair)
   }
 
+  addImage = (repairID: string, formData: FormData): Observable<string> => {
+    return this.http.post<string>(`${this.repairsUrl}/${repairID}/images`, formData);
+  }
+
   getRepairTasks = (): Observable<RepairTask[]> => {
     console.log('Fetching repair tasks from API');
     console.log(this.http.get<RepairTask[]>(`${this.repairsUrl}/tasks`))
