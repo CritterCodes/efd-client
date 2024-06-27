@@ -97,6 +97,7 @@ export class ReceivingComponent implements OnInit {
         },
         error: (err) => console.error('Error updating status', err)
       });
+      this.printDetails();
     }
   }
   

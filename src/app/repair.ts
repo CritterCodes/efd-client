@@ -16,5 +16,6 @@ export interface RepairTask {
     title: string,
     metalType: string,
     variantId: string,
-    productId: string
+    productId: string,
+    repairTaskID: string
 }
