@@ -4,6 +4,7 @@ import { RepairService } from '../repair.service';
 import { Repair } from '../repair';
 import { NgIf, NgFor} from '@angular/common';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-location',
@@ -21,7 +22,8 @@ export class LocationComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private repairService: RepairService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
     this.statusForm = this.fb.group({
       status: ['']
@@ -53,7 +55,7 @@ export class LocationComponent implements OnInit {
       this.repair.status = this.statusForm.get('status')?.value;
       this.repairService.updateRepair(this.repair.repairID, this.repair)
         .subscribe(() => {
-          alert('Status updated successfully');
+          this.router.navigate([`/dashboard/repairs/${this.repairID}`]);
         });
     }
   }
