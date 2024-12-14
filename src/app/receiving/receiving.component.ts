@@ -70,6 +70,11 @@ export class ReceivingComponent implements OnInit {
       reader.readAsDataURL(file);
     }
   }
+
+  
+  formatTask(task: any): string {
+    return `${task.taskID} ${task.title}`;
+  }
   
   receiveRepair(): void {
     if (this.repairID && this.receivingForm.valid) {
@@ -97,6 +102,7 @@ export class ReceivingComponent implements OnInit {
         },
         error: (err) => console.error('Error updating status', err)
       });
+      this.printDetails();
     }
   }
   

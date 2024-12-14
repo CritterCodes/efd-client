@@ -42,4 +42,13 @@ export class RepairService {
     console.log(this.http.get<RepairTask[]>(`${this.repairsUrl}/tasks`))
     return this.http.get<RepairTask[]>(`${this.repairsUrl}/tasks`);
   }
+  
+  addRepairTasks(repairID: string, request: { repairTasks: string[] }): Observable<Repair> {
+    return this.http.post<Repair>(`${this.repairsUrl}/${repairID}`, request);
+  }
+  
+
+  deleteRepairTask(repairID: string, repairTaskID: string): Observable<void> {
+    return this.http.delete<void>(`${this.repairsUrl}/${repairID}/repair-tasks/${repairTaskID}`);
+  }
 }

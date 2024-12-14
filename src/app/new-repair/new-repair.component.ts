@@ -106,7 +106,7 @@ export class NewRepairComponent implements OnInit {
         promiseDate: this.repairForm.get('promiseDate')!.value,
         metalType: this.repairForm.get('metalType')!.value,
         repairTasks: this.repair.repairTasks,
-        status: 'pending'
+        status: 'RECEIVING'
       };
 
       this.repairService.createRepair(this.repair)

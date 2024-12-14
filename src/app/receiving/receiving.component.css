@@ -1,8 +1,18 @@
-.container {
+  .container {
     max-width: 600px;
     margin: 0 auto;
   }
   
   .img-thumbnail {
     max-width: 100%;
+  }
+
+  @font-face {
+    font-family: 'Libre Barcode 39';
+    src: url('../../assets/fonts/Code39r.ttf') format('truetype');
+  }
+  
+  .barcode {
+    font-family: 'Libre Barcode 39';
+    font-size: 40px; /* Adjust size as needed */
   }
